@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{.Doc.title}}</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta name="author" content="Gitai.me">  
+  
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/gitbook/images/apple-touch-icon-precomposed-152.png">
+  <link rel="shortcut icon" href="/gitbook/images/favicon.ico" type="image/x-icon">
+
+  {{range $key, $val := .Meta}}
+  <meta name="{{$key}}" content="{{$val}}">
+  {{end}}
+
+  <link rel="stylesheet" href="/gitbook/style.css">
+  <link rel="stylesheet" href="/gitbook/gitbook-plugin-comment/plugin.css">
+  <link rel="stylesheet" href="/gitbook/gitbook-plugin-highlight/website.css">
+  <link rel="stylesheet" href="/gitbook/gitbook-plugin-search/search.css">
+  <link rel="stylesheet" href="/gitbook/gitbook-plugin-fontsettings/website.css">
+
+  {{- range .Styles}}
+  <link rel="stylesheet" href="{{.}}">
+  {{- end}}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.0rc1/zepto.min.js"></script>
+  {{- range .Scripts}}
+  <script src="{{.}}"></script>
+  {{- end}}
+
+  <script id="debug-struct" type="text/html">
+    {{ printf "%#v" . }}
+  </script>
+</head>
+<body>
+  <div class="book">
+    <div class="book-summary">
+      <style tyle="text/css">
+        nav h1{
+          display: none
+        }
+      </style>
+      <nav role="navigation">
+        {{.Markdown "SUMMARY.md"}}
+      </nav>
+      <script type="application/javascript">
+        $("nav>ul").ready(function(){$("nav>ul").addClass("summary")})
+      </script>
+    </div>
+    
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <!-- Title -->
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i>
+            <a href="{{.Context.URL.Path}}" >{{.Doc.title}}</a>
+          </h1>
+        </div>
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+            <section class="normal markdown-section">
+              {{.Doc.body}}
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="application/javascript">
+      var gitbook = gitbook || [];
+      gitbook.push(function() {
+        gitbook.page.hasChanged({"page":{"title":"Introduction"},"config":{"plugins":["edit-link"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"base": "https://github.com/zhaoda/webpack-handbook/edit/master/content"}, "sharing":{"weibo":true,"twitter":true,"google":false,"facebook":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gitai","pdf":{"pageNumbers":true,"fontSize":16,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"TAJ-Operating-System-Tutorials","language":"en"},"file":{"path":"README.md","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-07-23T13:05:51.846Z"},"basePath":".","book":{"language":""}});
+      });
+    </script>
+  </div>
+  <script src="/gitbook/gitbook.js"></script>
+  <script src="/gitbook/theme.js"></script>
+  <!-- script src="/gitbook/gitbook-plugin-comment/plugin.js"></script>
+  <script src="/gitbook/gitbook-plugin-search/search-engine.js"></script>
+  <script src="/gitbook/gitbook-plugin-search/search.js"></script>
+  <script src="/gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+  <script src="/gitbook/gitbook-plugin-lunr/search-lunr.js"></script -->
+  <script src="/gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+  <script src="/gitbook/gitbook-plugin-sharing/buttons.js"></script>
+  <script src="/gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+</body>
+</html>
+
