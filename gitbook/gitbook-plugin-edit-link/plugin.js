@@ -19,6 +19,9 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
             icon: 'fa fa-edit',
             onClick: function() {
                 var filepath = gitbook.state.filepath;
+                if (filepath.startsWith("/")) {
+                    filepath = filepath.slice(1);
+                }
 
                 window.open(base + lang + filepath);
             }

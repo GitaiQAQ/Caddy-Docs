@@ -4,7 +4,7 @@ browse
 
 markdown {
 	ext .md .markdown
-	template ../etc/template.html
+	template template.html
 }
 
 log stdout
