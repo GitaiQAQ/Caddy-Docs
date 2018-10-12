@@ -1,12 +1,32 @@
-0.0.0.0
-
-browse
+:2015
 
 markdown {
 	ext .md .markdown
-	template template.html
+	template /caddy/template.html
+}
+
+gzip {
+	not /stream/
+}
+
+rewrite {
+	r ^/$
+	to index.html
+}
+
+redir index.html /README.md
+
+rewrite {
+	r ^/gitbook/(.+)$
+	to /caddy/gitbook/{1}
+}
+
+status 403 {
+	/.htaccess
+	/.git
 }
 
 log stdout
 
-errors stdout
+errors stdout {
+}
